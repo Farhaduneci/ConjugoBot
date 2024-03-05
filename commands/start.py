@@ -7,7 +7,7 @@ from utils.decorators import send_action
 logger = getLogger(__name__)
 
 START_TEXT = """
-Hello and welcome herei. 👋
+Hello and welcome here. 👋
 
 You can send me the present, past and past participle of a verb and I will tell you what the other forms are.
 """
