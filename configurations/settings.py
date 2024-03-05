@@ -6,11 +6,14 @@ load_dotenv()
 
 TOKEN = os.environ["TOKEN"]
 NAME = os.environ["NAME"]
+
+IS_MAINTENANCE = bool(int(os.environ["IS_MAINTENANCE"]))
+
 ADMIN_TELEGRAM_USER_ID = int(os.environ["ADMIN_TELEGRAM_USER_ID"])
-IS_MAINTENANCE = bool(os.environ["IS_MAINTENANCE"])
 LIST_OF_ADMINS = [ADMIN_TELEGRAM_USER_ID]
+
 WEBHOOK = False
-# The following configuration is only needed if you setted WEBHOOK to True #
+# The following configuration is only needed if you setted WEBHOOK to True
 WEBHOOK_OPTIONS = {
     "listen": "0.0.0.0",  # IP
     "port": 443,
