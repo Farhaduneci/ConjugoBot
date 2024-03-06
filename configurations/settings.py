@@ -9,8 +9,6 @@ NAME = os.environ["NAME"]
 
 IS_MAINTENANCE = bool(int(os.environ["IS_MAINTENANCE"]))
 
-ADMIN_TELEGRAM_USER_ID = int(os.environ["ADMIN_TELEGRAM_USER_ID"])
-LIST_OF_ADMINS = [ADMIN_TELEGRAM_USER_ID]
 
 WEBHOOK = False
 # The following configuration is only needed if you setted WEBHOOK to True
