@@ -12,13 +12,13 @@ import asyncio
 logger = getLogger(__name__)
 
 SUCSUSS_TEXT = """
-I have these verbs for you:
+🔖 I have these verbs for you:
 
 {verbs}
 """
 
 FAILIOR_TEXT = """
-I'm sorry, I couldn't find any verbs that match your input.
+❌ I'm sorry, I couldn't find any verbs that match your input.
 If you're sure that the verb exists, it might not be an irregular verb.
 
 Here is the general process of conjugating a regular verb:
@@ -47,6 +47,7 @@ async def conjugate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
     if not matching_verbs:
         await update.message.reply_text(
             text=FAILIOR_TEXT,
+            reply_to_message_id=update.message.id,
         )
         return
 
@@ -54,4 +55,5 @@ async def conjugate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
         text=SUCSUSS_TEXT.format(
             verbs="\n".join([" | ".join(row) for row in matching_verbs])
         ),
+        reply_to_message_id=update.message.id,
     )

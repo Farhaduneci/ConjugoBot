@@ -19,4 +19,5 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
     # pylint: disable=unused-argument
     await update.message.reply_text(
         text=START_TEXT,
+        reply_to_message_id=update.message.id,
     )

@@ -13,7 +13,7 @@ logger = getLogger(__name__)
 async def maintenance(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
 
     # pylint: disable=unused-argument
-    await context.bot.send_message(
-        chat_id=update.message.chat_id,
-        text="Bot is under maintenance. Please try again later.",
+    await update.message.reply_text(
+        text="🛠 Bot is under maintenance. Please try again later.",
+        reply_to_message_id=update.message.id,
     )
