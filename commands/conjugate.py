@@ -1,5 +1,6 @@
 from logging import getLogger
 from telegram import Update
+from telegram.constants import ParseMode
 from telegram.constants import ChatAction
 from telegram.ext import ContextTypes
 from constants import messages
@@ -36,7 +37,10 @@ async def conjugate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> str:
 
     await update.message.reply_text(
         text=messages.SUCSUSS_TEXT.format(
-            verbs="\n".join([" | ".join(row) for row in matching_verbs])
+            verbs="\n".join(
+                [" | ".join(map(lambda w: f"`{w}`", row)) for row in matching_verbs]
+            )
         ),
         reply_to_message_id=update.message.id,
+        parse_mode=ParseMode.MARKDOWN,
     )
